@@ -20,6 +20,9 @@ function menu_export(parent){
     //    in_export_ratio.setAttribute("placeholder",`1 unit = 1 pixel`)
     //}
     let btn_save_data = bs.button(ecol0,"btn_save",`export seeds coordinates`);
+    let btn_load_data = bs.button(ecol0,"btn_load",`import seeds coordinates`);
+    html(ecol0,/*html*/`<input type="file" accept=".json" style="display:none" id="seeds_file_input">`);
+    let file_input = document.getElementById("seeds_file_input");
 
     html(ecol1,/*html*/`<p align="center">Export</p>`)
     const lst = vor.export_svg
@@ -59,6 +62,14 @@ function menu_export(parent){
 
     $(btn_save_data).click(()=>{
         vor.save_seeds("seeds.json")
+    })
+    $(btn_load_data).click(()=>{
+        file_input.click()
+    })
+    $(file_input).change((e)=>{
+        const file = e.target.files[0]
+        if(file){ vor.load_dropped_file(file) }
+        file_input.value = null
     })
     //$(in_export_ratio).change((e)=>{
     //    vor.export_ratio = in_export_ratio.value
