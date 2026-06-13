@@ -1,6 +1,14 @@
 # Overview
 Parametric Voronoi generator with real time editing and SVG export
 
+## Running locally
+
+```bash
+python3 -m http.server 8080
+```
+
+Then open `http://localhost:8080` in Chrome.
+
 ## Live demo 
  Chrome is tested as web browser, Edge might work but  Firefox might show  white page only
 * https://voronoi-editor.web.app/
